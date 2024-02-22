@@ -1,6 +1,9 @@
-import "../../api/ledger/server/methods.js";
-import "../../api/chain/server/methods.js";
-import "../../api/chain/server/publications.js";
+import "../../api/ledger/server/triangule.js";
+import "../../api/chain/server/triangule.js";
+import "../../api/chain/server/customs.js";
+
+
+import "../../api/accounts/server/methods.js";
 
 pubkeyToBech32: function(pubkey, prefix) {
         let buffer;
@@ -24,3 +27,9 @@ pubkeyToBech32: function(pubkey, prefix) {
             return false
         }
     },
+
+    getVersion: function(){
+        const version = Assets.getText('version');
+        return version ? version : 'beta'
+    }
+})
